@@ -53,7 +53,7 @@ export function HowItWorks() {
             }}
             className="relative text-center md:text-left"
           >
-            <p className="mb-3 font-mono text-5xl font-bold text-accent">
+            <p className="mb-3 font-mono text-5xl font-bold text-accent/40">
               {step.number}
             </p>
             <h3 className="mb-2 font-display text-xl font-bold text-foreground">

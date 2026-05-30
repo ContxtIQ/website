@@ -6,6 +6,7 @@ import { WhoItsFor } from "@/components/who-its-for";
 import { SocialProof } from "@/components/social-proof";
 import { CtaSection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
+import { ParticleBackground } from "@/components/particle-background";
 
 export default function Home() {
   return (
@@ -16,16 +17,19 @@ export default function Home() {
       >
         Skip to content
       </a>
-      <Nav />
-      <main id="main">
-        <Hero />
-        <HowItWorks />
-        <FeatureDeepDives />
-        <WhoItsFor />
-        <SocialProof />
-        <CtaSection />
-      </main>
-      <Footer />
+      <ParticleBackground />
+      <div className="relative z-10">
+        <Nav />
+        <main id="main">
+          <Hero />
+          <HowItWorks />
+          <FeatureDeepDives />
+          <WhoItsFor />
+          <SocialProof />
+          <CtaSection />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

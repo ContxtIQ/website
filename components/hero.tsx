@@ -24,7 +24,7 @@ export function Hero() {
         <div className="mt-10 flex items-center gap-6">
           <a
             href="#request-demo"
-            className="rounded bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover"
+            className="rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-8 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all hover:shadow-[0_0_28px_rgba(77,184,138,0.45)]"
           >
             Request a demo
           </a>

@@ -44,7 +44,7 @@ export function WhoItsFor() {
         {PERSONAS.map((persona) => (
           <div
             key={persona.title}
-            className="rounded-[var(--radius)] border border-border bg-card p-8"
+            className="rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[#2a2b28] p-8 transition-all hover:border-[rgba(77,184,138,0.3)] hover:shadow-[0_0_20px_rgba(77,184,138,0.08)]"
           >
             <h3 className="mb-4 font-display text-xl font-bold text-foreground">
               {persona.title}

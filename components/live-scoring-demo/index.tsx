@@ -26,7 +26,7 @@ export function LiveScoringDemo() {
 
   return (
     <div ref={ref} className="mx-auto max-w-[800px] px-6 pb-20">
-      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-black/20">
+      <div className="overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#232420] shadow-2xl shadow-black/30">
         {/* Mock app header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-3">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">

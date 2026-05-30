@@ -45,7 +45,7 @@ export function Nav() {
           ))}
           <a
             href="#request-demo"
-            className="rounded bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover"
+            className="rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all hover:shadow-[0_0_24px_rgba(77,184,138,0.4)]"
           >
             Request a demo
           </a>
@@ -96,7 +96,7 @@ export function Nav() {
               ))}
               <a
                 href="#request-demo"
-                className="mt-2 rounded bg-accent px-4 py-2 text-center text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover"
+                className="mt-2 rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-5 py-2 text-center text-sm font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all"
                 onClick={() => setMobileOpen(false)}
               >
                 Request a demo

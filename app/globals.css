@@ -1,43 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #2a2a2a;
-  --foreground: #fafafa;
+  --background: #1e1f1c;
+  --foreground: #f0ede6;
 
-  --card: #323232;
-  --card-foreground: #fafafa;
+  --card: #262723;
+  --card-foreground: #f0ede6;
 
-  --muted-foreground: #a1a1aa;
+  --muted-foreground: #8a8882;
 
-  --border: #4f4f4f;
-  --input-background: #4f4f4f;
-  --ring: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.1);
+  --input-background: rgba(255, 255, 255, 0.06);
+  --ring: rgba(77, 184, 138, 0.3);
 
-  --hover: rgba(255, 255, 255, 0.06);
-  --active: rgba(255, 255, 255, 0.1);
+  --hover: rgba(255, 255, 255, 0.04);
+  --active: rgba(255, 255, 255, 0.08);
 
-  --accent: #19e6c0;
-  --accent-hover: #14ccaa;
-  --accent-subtle: rgba(25, 230, 192, 0.08);
-  --accent-border: rgba(25, 230, 192, 0.25);
-  --accent-text: #19e6c0;
-  --on-accent: #0b0c0e;
+  --accent: #4db88a;
+  --accent-hover: #37af78;
+  --accent-subtle: rgba(77, 184, 138, 0.08);
+  --accent-border: rgba(77, 184, 138, 0.25);
+  --accent-text: #4db88a;
+  --on-accent: #ffffff;
 
-  --score-good: #34d399;
-  --score-good-subtle: rgba(52, 211, 153, 0.12);
-  --score-good-border: rgba(52, 211, 153, 0.3);
+  --score-good: #4db88a;
+  --score-good-subtle: rgba(77, 184, 138, 0.1);
+  --score-good-border: rgba(77, 184, 138, 0.25);
 
-  --score-mid: #fbbf24;
-  --score-mid-subtle: rgba(251, 191, 36, 0.12);
-  --score-mid-border: rgba(251, 191, 36, 0.3);
+  --score-mid: #d4a843;
+  --score-mid-subtle: rgba(212, 168, 67, 0.1);
+  --score-mid-border: rgba(212, 168, 67, 0.25);
 
-  --score-low: #f87171;
-  --score-low-subtle: rgba(248, 113, 113, 0.12);
-  --score-low-border: rgba(248, 113, 113, 0.35);
+  --score-low: #c45c5c;
+  --score-low-subtle: rgba(196, 92, 92, 0.1);
+  --score-low-border: rgba(196, 92, 92, 0.25);
 
-  --sidebar-bg: oklch(0.135 0.007 188);
-  --sidebar-border: oklch(0.21 0.007 188);
-  --sidebar-muted: oklch(0.56 0.012 188);
+  --sidebar-bg: #1a1b18;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-muted: #6b6960;
 
   --radius: 0.625rem;
 }

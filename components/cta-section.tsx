@@ -3,7 +3,7 @@
 export function CtaSection() {
   return (
     <section id="request-demo" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[640px] rounded-xl border border-border bg-card p-8 text-center md:p-12">
+      <div className="mx-auto max-w-[640px] rounded-2xl border border-border bg-card p-8 text-center md:p-12">
         <h2 className="mb-3 font-display text-2xl font-bold text-foreground md:text-[32px]">
           See ContxtIQ in action
         </h2>
@@ -61,7 +61,7 @@ export function CtaSection() {
           </div>
           <button
             type="submit"
-            className="mx-auto w-full rounded-[var(--radius)] bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover md:w-auto"
+            className="mx-auto w-full rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all hover:shadow-[0_0_28px_rgba(77,184,138,0.45)] md:w-auto"
           >
             Request a demo
           </button>

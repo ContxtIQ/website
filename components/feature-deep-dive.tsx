@@ -5,7 +5,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 
 function ScorecardMock() {
   return (
-    <div className="rounded-xl border border-border bg-card p-5">
+    <div className="rounded-2xl border border-border bg-card p-5">
       <div className="mb-4 flex items-center justify-between">
         <p className="text-sm font-semibold text-foreground">
           Can you describe the types of HVAC systems you&apos;ve worked on?
@@ -49,7 +49,7 @@ function TemplateListMock() {
   ];
 
   return (
-    <div className="rounded-xl border border-border bg-card">
+    <div className="rounded-2xl border border-border bg-card">
       <div className="border-b border-border px-5 py-3">
         <div className="grid grid-cols-[1fr_80px_80px] gap-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
           <span>Name</span>
