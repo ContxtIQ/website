@@ -1,4 +1,5 @@
 import { Nav } from "@/components/nav";
+import { Hero } from "@/components/hero";
 
 export default function Home() {
   return (
@@ -11,11 +12,7 @@ export default function Home() {
       </a>
       <Nav />
       <main id="main">
-        <section className="flex min-h-screen items-center justify-center pt-16">
-          <h1 className="font-display text-5xl font-bold tracking-tight">
-            ContxtIQ
-          </h1>
-        </section>
+        <Hero />
       </main>
     </>
   );
