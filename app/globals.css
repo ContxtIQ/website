@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #2a2a2a;
+  --foreground: #fafafa;
+
+  --card: #323232;
+  --card-foreground: #fafafa;
+
+  --muted-foreground: #a1a1aa;
+
+  --border: #4f4f4f;
+  --input-background: #4f4f4f;
+  --ring: rgba(255, 255, 255, 0.18);
+
+  --hover: rgba(255, 255, 255, 0.06);
+  --active: rgba(255, 255, 255, 0.1);
+
+  --accent: #19e6c0;
+  --accent-hover: #14ccaa;
+  --accent-subtle: rgba(25, 230, 192, 0.08);
+  --accent-border: rgba(25, 230, 192, 0.25);
+  --accent-text: #19e6c0;
+  --on-accent: #0b0c0e;
+
+  --score-good: #34d399;
+  --score-good-subtle: rgba(52, 211, 153, 0.12);
+  --score-good-border: rgba(52, 211, 153, 0.3);
+
+  --score-mid: #fbbf24;
+  --score-mid-subtle: rgba(251, 191, 36, 0.12);
+  --score-mid-border: rgba(251, 191, 36, 0.3);
+
+  --score-low: #f87171;
+  --score-low-subtle: rgba(248, 113, 113, 0.12);
+  --score-low-border: rgba(248, 113, 113, 0.35);
+
+  --sidebar-bg: oklch(0.135 0.007 188);
+  --sidebar-border: oklch(0.21 0.007 188);
+  --sidebar-muted: oklch(0.56 0.012 188);
+
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input-background: var(--input-background);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-border: var(--accent-border);
+  --color-on-accent: var(--on-accent);
+  --color-score-good: var(--score-good);
+  --color-score-good-subtle: var(--score-good-subtle);
+  --color-score-mid: var(--score-mid);
+  --color-score-mid-subtle: var(--score-mid-subtle);
+  --color-score-low: var(--score-low);
+  --color-score-low-subtle: var(--score-low-subtle);
+  --color-hover: var(--hover);
+
+  --font-display: var(--font-barlow-condensed), sans-serif;
+  --font-body: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
