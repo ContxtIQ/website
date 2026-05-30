@@ -1,4 +1,14 @@
-import { LiveScoringDemo } from "@/components/live-scoring-demo";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const LiveScoringDemo = dynamic(
+  () =>
+    import("@/components/live-scoring-demo").then((mod) => ({
+      default: mod.LiveScoringDemo,
+    })),
+  { ssr: false }
+);
 
 export function Hero() {
   return (
