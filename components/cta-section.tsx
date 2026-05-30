@@ -1,3 +1,5 @@
+"use client";
+
 export function CtaSection() {
   return (
     <section id="request-demo" className="px-6 py-24 md:py-32">

@@ -2,6 +2,10 @@ import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { FeatureDeepDives } from "@/components/feature-deep-dive";
+import { WhoItsFor } from "@/components/who-its-for";
+import { SocialProof } from "@/components/social-proof";
+import { CtaSection } from "@/components/cta-section";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -17,7 +21,11 @@ export default function Home() {
         <Hero />
         <HowItWorks />
         <FeatureDeepDives />
+        <WhoItsFor />
+        <SocialProof />
+        <CtaSection />
       </main>
+      <Footer />
     </>
   );
 }
