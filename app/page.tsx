@@ -1,6 +1,7 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
+import { FeatureDeepDives } from "@/components/feature-deep-dive";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <HowItWorks />
+        <FeatureDeepDives />
       </main>
     </>
   );
