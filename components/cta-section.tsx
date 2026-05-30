@@ -8,7 +8,7 @@ export function CtaSection() {
           See ContxtIQ in action
         </h2>
         <p className="mb-8 text-base text-muted-foreground">
-          Book a 15-minute demo and we'll show you how it works with your
+          Book a 15-minute demo and we&apos;ll show you how it works with your
           interview scripts.
         </p>
         <form

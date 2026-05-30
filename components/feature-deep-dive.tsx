@@ -8,7 +8,7 @@ function ScorecardMock() {
     <div className="rounded-xl border border-border bg-card p-5">
       <div className="mb-4 flex items-center justify-between">
         <p className="text-sm font-semibold text-foreground">
-          Can you describe the types of HVAC systems you've worked on?
+          Can you describe the types of HVAC systems you&apos;ve worked on?
         </p>
         <span className="rounded-full bg-score-good-subtle px-3 py-1 font-mono text-xs font-bold text-score-good">
           85.7%
