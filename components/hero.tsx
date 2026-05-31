@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import { HeroMock } from "./hero-mock";
 
 export function Hero() {
   const imgRef = useRef<HTMLDivElement>(null);
@@ -12,11 +13,13 @@ export function Hero() {
     <section>
       <div className="flex flex-col items-center px-6 pt-32 pb-16 text-center md:pt-40 md:pb-20">
         <h1 className="max-w-[720px] font-display text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground md:text-[56px]">
-          Every interviewer performs like your best one
+          Close technical roles your competitors can&apos;t touch
         </h1>
         <p className="mt-6 max-w-[540px] text-base text-muted-foreground md:text-lg">
-          Real-time answer scoring, intelligent follow-ups, and structured
-          interviews that reduce bias and guesswork.
+          ContxtIQ gives your recruiters the scoring rubrics and follow-up
+          questions of a technical expert&nbsp;&mdash; so every interview
+          surfaces real signal, even for roles outside your team&apos;s
+          expertise.
         </p>
         <div className="mt-10 flex items-center gap-6">
           <a
@@ -46,39 +49,11 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="hero-screenshot-wrapper"
         >
-          {/* Glow effect behind the screenshot */}
+          {/* Glow effect behind the mock */}
           <div className="hero-glow" />
 
-          {/* Main native app screenshot */}
-          <div className="hero-screenshot-frame">
-            <img
-              src="/product-shots/native-welcome.png"
-              alt="ContxtIQ native app welcome screen with New Session button and recent interview templates"
-              className="hero-screenshot-img"
-            />
-          </div>
-
-          {/* Floating interview session overlay */}
-          <motion.div
-            initial={reduced ? false : { opacity: 0, x: 40, y: 20 }}
-            animate={
-              isInView || reduced
-                ? { opacity: 1, x: 0, y: 0 }
-                : undefined
-            }
-            transition={{
-              duration: 0.7,
-              delay: reduced ? 0 : 0.35,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
-            className="hero-floating-card"
-          >
-            <img
-              src="/product-shots/native-session-hvac.png"
-              alt="ContxtIQ native interview session showing structured questions with evaluate button"
-              className="rounded-xl"
-            />
-          </motion.div>
+          {/* Component-based hero mock */}
+          <HeroMock />
         </motion.div>
 
         {/* Bottom fade to blend into next section */}

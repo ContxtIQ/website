@@ -48,29 +48,41 @@ export function FeatureDeepDives() {
   return (
     <section id="features" className="space-y-24 px-6 py-24 md:py-32">
       <DeepDive
-        label="Answer Scoring"
-        heading="Scoring that explains itself"
-        body="Every answer gets a percentage score and a point-by-point breakdown — what the candidate covered, what they missed, and how it compares to your ideal. No black boxes."
+        label="Technical Coverage"
+        heading="Interview any technical role with confidence"
+        body="Your recruiters don't need to know Kubernetes from Kafka. ContxtIQ scores technical answers in real time against expert-written rubrics — so you can assess engineers, architects, and DevOps candidates without a technical SME in every interview."
         mock={
           <img
             src="/product-shots/conversation-detail-top.jpg"
-            alt="Conversation detail view showing an 86% final score with section-by-section scoring and AI-generated response summaries"
+            alt="Real-time scoring view showing an 86% score with point-by-point breakdown of a technical answer"
             className="rounded-xl"
           />
         }
       />
       <DeepDive
-        label="Script Templates"
-        heading="Every interview, same standard"
-        body="Script templates ensure every candidate gets the same questions in the same order. Sections organize by competency. Scores roll up for a clear, comparable signal."
+        label="Candidate Comparison"
+        heading="Compare candidates on what actually matters"
+        body="Every candidate gets a score breakdown by competency. Stack them side-by-side to see who's strongest — no gut calls, no second-guessing. Your clients get better shortlists, faster."
         mock={
           <img
-            src="/product-shots/script-template-detail-top.jpg"
-            alt="Script template detail view showing questions organized by section with ideal responses and aggregate scoring metrics"
+            src="/product-shots/conversation-scorecard.jpg"
+            alt="Candidate scorecard showing competency-level scores for side-by-side comparison"
             className="rounded-xl"
           />
         }
         reversed
+      />
+      <DeepDive
+        label="Script Analytics"
+        heading="Sharpen your scripts with real data"
+        body="See which questions candidates consistently miss or ace. Spot confusing wording. Know when to swap a question out or add criteria to the job description. Script analytics turn every interview into a feedback loop that makes the next one better."
+        mock={
+          <img
+            src="/product-shots/analytics.jpg"
+            alt="Script analytics dashboard showing question performance trends and average candidate scores"
+            className="rounded-xl"
+          />
+        }
       />
     </section>
   );

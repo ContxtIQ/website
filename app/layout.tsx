@@ -24,9 +24,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ContxtIQ — Every interviewer performs like your best one",
+  title: "ContxtIQ — Close technical roles your competitors can't touch",
   description:
-    "AI-assisted interviewing with real-time answer scoring, intelligent follow-ups, and structured interviews that reduce bias and guesswork.",
+    "ContxtIQ gives recruiters the scoring rubrics and follow-up questions of a technical expert — so every interview surfaces real signal, even for roles outside your team's expertise.",
 };
 
 export default function RootLayout({
