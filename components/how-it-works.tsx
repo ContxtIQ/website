@@ -26,10 +26,78 @@ const STEPS = [
   },
 ];
 
+function StackedProductShots({
+  inView,
+  reduced,
+}: {
+  inView: boolean;
+  reduced: boolean | null;
+}) {
+  return (
+    <div className="stacked-shots-container">
+      <div className="stacked-shots-glow" />
+
+      {/* Back — Welcome */}
+      <motion.div
+        className="stacked-shot stacked-shot--back"
+        initial={reduced ? false : { opacity: 0, x: -40, rotate: 0 }}
+        animate={
+          inView || reduced
+            ? { opacity: 0.7, x: 0, rotate: -3 }
+            : undefined
+        }
+        transition={{ duration: 0.7, ease }}
+      >
+        <img
+          src="/product-shots/native-welcome.png"
+          alt="ContxtIQ welcome screen"
+          loading="lazy"
+        />
+      </motion.div>
+
+      {/* Middle — Session */}
+      <motion.div
+        className="stacked-shot stacked-shot--middle"
+        initial={reduced ? false : { opacity: 0, y: 30, rotate: 0 }}
+        animate={
+          inView || reduced
+            ? { opacity: 0.85, y: 0, rotate: 1.5 }
+            : undefined
+        }
+        transition={{ duration: 0.7, delay: reduced ? 0 : 0.15, ease }}
+      >
+        <img
+          src="/product-shots/native-session-hvac.png"
+          alt="ContxtIQ live interview session with real-time scoring"
+          loading="lazy"
+        />
+      </motion.div>
+
+      {/* Front — New Session */}
+      <motion.div
+        className="stacked-shot stacked-shot--front"
+        initial={reduced ? false : { opacity: 0, x: 30, rotate: 0 }}
+        animate={
+          inView || reduced ? { opacity: 1, x: 0, rotate: 2 } : undefined
+        }
+        transition={{ duration: 0.7, delay: reduced ? 0 : 0.3, ease }}
+      >
+        <img
+          src="/product-shots/native-new-session-dialog.png"
+          alt="ContxtIQ new session dialog with script template selection"
+          loading="lazy"
+        />
+      </motion.div>
+    </div>
+  );
+}
+
 export function HowItWorks() {
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const imagesRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const headingInView = useInView(headingRef, { once: true, amount: 0.5 });
+  const imagesInView = useInView(imagesRef, { once: true, amount: 0.2 });
   const gridInView = useInView(gridRef, { once: true, amount: 0.2 });
   const reduced = useReducedMotion();
 
@@ -44,36 +112,56 @@ export function HowItWorks() {
       >
         How it works
       </motion.h2>
-      <div
-        ref={gridRef}
-        className="relative mx-auto grid max-w-[1080px] grid-cols-1 gap-12 md:grid-cols-3 md:gap-12"
-      >
-        {/* Connecting line — desktop only */}
-        <div className="absolute top-8 right-[calc(100%/6)] left-[calc(100%/6)] hidden h-px bg-border md:block" />
 
-        {STEPS.map((step, i) => (
-          <motion.div
-            key={step.number}
-            initial={reduced ? false : { opacity: 0, y: 28 }}
-            animate={gridInView || reduced ? { opacity: 1, y: 0 } : undefined}
-            transition={{
-              duration: 0.6,
-              delay: reduced ? 0 : i * 0.15,
-              ease,
-            }}
-            className="relative text-center md:text-left"
-          >
-            <p className="mb-3 font-mono text-5xl font-bold text-accent/40">
-              {step.number}
-            </p>
-            <h3 className="mb-2 font-display text-xl font-bold text-foreground">
-              {step.title}
-            </h3>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              {step.description}
-            </p>
-          </motion.div>
-        ))}
+      <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        {/* Left — stacked product images */}
+        <motion.div
+          ref={imagesRef}
+          initial={reduced ? false : { opacity: 0, x: -32 }}
+          animate={
+            imagesInView || reduced ? { opacity: 1, x: 0 } : undefined
+          }
+          transition={{ duration: 0.7, ease }}
+          className="relative"
+        >
+          <StackedProductShots inView={imagesInView} reduced={!!reduced} />
+        </motion.div>
+
+        {/* Right — vertical steps */}
+        <div ref={gridRef} className="relative flex flex-col gap-10">
+          {/* Vertical connecting line */}
+          <div className="absolute top-[22px] bottom-[22px] left-[22px] hidden w-px bg-border lg:block" />
+
+          {STEPS.map((step, i) => (
+            <motion.div
+              key={step.number}
+              initial={reduced ? false : { opacity: 0, y: 28 }}
+              animate={
+                gridInView || reduced ? { opacity: 1, y: 0 } : undefined
+              }
+              transition={{
+                duration: 0.6,
+                delay: reduced ? 0 : i * 0.15,
+                ease,
+              }}
+              className="relative flex gap-5 lg:gap-6"
+            >
+              <div className="flex-shrink-0">
+                <p className="flex h-11 w-11 items-center justify-center rounded-full border border-accent-border bg-accent-subtle font-mono text-sm font-bold text-accent">
+                  {step.number}
+                </p>
+              </div>
+              <div>
+                <h3 className="mb-1.5 font-display text-xl font-bold text-foreground">
+                  {step.title}
+                </h3>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

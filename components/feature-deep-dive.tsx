@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
+
 const ease = [0.25, 1, 0.5, 1] as const;
 
 interface DeepDiveProps {
@@ -65,8 +66,8 @@ export function FeatureDeepDives() {
         body="Your recruiters don't need to know Kubernetes from Kafka. ContxtIQ scores technical answers in real time against expert-written rubrics — so you can assess engineers, architects, and DevOps candidates without a technical SME in every interview."
         mock={
           <img
-            src="/product-shots/conversation-detail-top.jpg"
-            alt="Real-time scoring view showing an 86% score with point-by-point breakdown of a technical answer"
+            src="/product-shots/native-welcome.png"
+            alt="ContxtIQ welcome screen showing recent interview scripts"
             className="rounded-xl"
           />
         }
@@ -90,8 +91,8 @@ export function FeatureDeepDives() {
         body="See which questions candidates consistently miss or ace. Spot confusing wording. Know when to swap a question out or add criteria to the job description. Script analytics turn every interview into a feedback loop that makes the next one better."
         mock={
           <img
-            src="/product-shots/analytics.jpg"
-            alt="Script analytics dashboard showing question performance trends and average candidate scores"
+            src="/product-shots/script-template-detail-top.jpg"
+            alt="Script template detail view showing structured interview questions and scoring criteria"
             className="rounded-xl"
           />
         }
