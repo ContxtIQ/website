@@ -66,7 +66,7 @@ export function FeatureDeepDives() {
         body="Your recruiters don't need to know Kubernetes from Kafka. ContxtIQ scores technical answers in real time against expert-written rubrics — so you can assess engineers, architects, and DevOps candidates without a technical SME in every interview."
         mock={
           <img
-            src="/product-shots/native-welcome.png"
+            src="/website/product-shots/native-welcome.png"
             alt="ContxtIQ welcome screen showing recent interview scripts"
             className="rounded-xl"
           />
@@ -78,7 +78,7 @@ export function FeatureDeepDives() {
         body="Every candidate gets a score breakdown by competency. Stack them side-by-side to see who's strongest — no gut calls, no second-guessing. Your clients get better shortlists, faster."
         mock={
           <img
-            src="/product-shots/conversation-scorecard.jpg"
+            src="/website/product-shots/conversation-scorecard.jpg"
             alt="Candidate scorecard showing competency-level scores for side-by-side comparison"
             className="rounded-xl"
           />
@@ -91,7 +91,7 @@ export function FeatureDeepDives() {
         body="See which questions candidates consistently miss or ace. Spot confusing wording. Know when to swap a question out or add criteria to the job description. Script analytics turn every interview into a feedback loop that makes the next one better."
         mock={
           <img
-            src="/product-shots/script-template-detail-top.jpg"
+            src="/website/product-shots/script-template-detail-top.jpg"
             alt="Script template detail view showing structured interview questions and scoring criteria"
             className="rounded-xl"
           />
