@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
+const ease = [0.25, 1, 0.5, 1] as const;
+
 const METRICS = [
   { value: "[X]%", label: "more consistent scores across interviewers" },
   { value: "[X]", label: "hours saved per hiring cycle" },
@@ -10,33 +12,48 @@ const METRICS = [
 ];
 
 export function SocialProof() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const metricsRef = useRef<HTMLDivElement>(null);
+  const logosRef = useRef<HTMLDivElement>(null);
+  const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 });
+  const logosInView = useInView(logosRef, { once: true, amount: 0.5 });
   const reduced = useReducedMotion();
 
   return (
     <section className="px-6 py-24 md:py-32">
-      <motion.div
-        ref={ref}
-        initial={reduced ? false : { opacity: 0, y: 8 }}
-        animate={isInView || reduced ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className="mx-auto max-w-[1080px]"
-      >
+      <div className="mx-auto max-w-[1080px]">
         {/* Metrics */}
-        <div className="mb-20 grid grid-cols-1 gap-12 md:grid-cols-3">
-          {METRICS.map((metric) => (
-            <div key={metric.label} className="text-center">
+        <div
+          ref={metricsRef}
+          className="mb-20 grid grid-cols-1 gap-12 md:grid-cols-3"
+        >
+          {METRICS.map((metric, i) => (
+            <motion.div
+              key={metric.label}
+              initial={reduced ? false : { opacity: 0, y: 24 }}
+              animate={metricsInView || reduced ? { opacity: 1, y: 0 } : undefined}
+              transition={{
+                duration: 0.6,
+                delay: reduced ? 0 : i * 0.12,
+                ease,
+              }}
+              className="text-center"
+            >
               <p className="mb-2 font-mono text-5xl font-bold text-foreground">
                 {metric.value}
               </p>
               <p className="text-sm text-muted-foreground">{metric.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Logo row — placeholder */}
-        <div className="flex flex-wrap items-center justify-center gap-12 opacity-40">
+        <motion.div
+          ref={logosRef}
+          initial={reduced ? false : { opacity: 0 }}
+          animate={logosInView || reduced ? { opacity: 0.4 } : undefined}
+          transition={{ duration: 0.8, ease }}
+          className="flex flex-wrap items-center justify-center gap-12"
+        >
           {Array.from({ length: 5 }).map((_, i) => (
             <div
               key={i}
@@ -45,8 +62,8 @@ export function SocialProof() {
               Logo
             </div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

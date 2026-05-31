@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
+const ease = [0.25, 1, 0.5, 1] as const;
+
 const STEPS = [
   {
     number: "01",
@@ -25,17 +27,25 @@ const STEPS = [
 ];
 
 export function HowItWorks() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const headingInView = useInView(headingRef, { once: true, amount: 0.5 });
+  const gridInView = useInView(gridRef, { once: true, amount: 0.2 });
   const reduced = useReducedMotion();
 
   return (
     <section id="how-it-works" className="px-6 py-24 md:py-32">
-      <h2 className="mb-16 text-center font-display text-3xl font-bold tracking-tight text-foreground md:text-[40px]">
+      <motion.h2
+        ref={headingRef}
+        initial={reduced ? false : { opacity: 0, y: 20 }}
+        animate={headingInView || reduced ? { opacity: 1, y: 0 } : undefined}
+        transition={{ duration: 0.6, ease }}
+        className="mb-16 text-center font-display text-3xl font-bold tracking-tight text-foreground md:text-[40px]"
+      >
         How it works
-      </h2>
+      </motion.h2>
       <div
-        ref={ref}
+        ref={gridRef}
         className="relative mx-auto grid max-w-[1080px] grid-cols-1 gap-12 md:grid-cols-3 md:gap-12"
       >
         {/* Connecting line — desktop only */}
@@ -44,12 +54,12 @@ export function HowItWorks() {
         {STEPS.map((step, i) => (
           <motion.div
             key={step.number}
-            initial={reduced ? false : { opacity: 0, y: 8 }}
-            animate={isInView || reduced ? { opacity: 1, y: 0 } : undefined}
+            initial={reduced ? false : { opacity: 0, y: 28 }}
+            animate={gridInView || reduced ? { opacity: 1, y: 0 } : undefined}
             transition={{
-              duration: 0.5,
-              delay: reduced ? 0 : i * 0.1,
-              ease: [0.25, 0.1, 0.25, 1],
+              duration: 0.6,
+              delay: reduced ? 0 : i * 0.15,
+              ease,
             }}
             className="relative text-center md:text-left"
           >

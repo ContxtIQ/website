@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
+const ease = [0.25, 1, 0.5, 1] as const;
+
 interface DeepDiveProps {
   label: string;
   heading: string;
@@ -13,20 +15,25 @@ interface DeepDiveProps {
 
 function DeepDive({ label, heading, body, mock, reversed }: DeepDiveProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.25 });
   const reduced = useReducedMotion();
 
+  const textX = reversed ? 32 : -32;
+  const imgX = reversed ? -32 : 32;
+
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={reduced ? false : { opacity: 0, y: 8 }}
-      animate={isInView || reduced ? { opacity: 1, y: 0 } : undefined}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       className={`mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-12 lg:grid-cols-[45fr_55fr] ${
         reversed ? "lg:[direction:rtl]" : ""
       }`}
     >
-      <div className={reversed ? "lg:[direction:ltr]" : ""}>
+      <motion.div
+        initial={reduced ? false : { opacity: 0, x: textX }}
+        animate={isInView || reduced ? { opacity: 1, x: 0 } : undefined}
+        transition={{ duration: 0.7, ease }}
+        className={reversed ? "lg:[direction:ltr]" : ""}
+      >
         <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.1em] text-accent">
           {label}
         </p>
@@ -36,11 +43,16 @@ function DeepDive({ label, heading, body, mock, reversed }: DeepDiveProps) {
         <p className="text-base leading-relaxed text-muted-foreground">
           {body}
         </p>
-      </div>
-      <div className={reversed ? "lg:[direction:ltr]" : ""}>
+      </motion.div>
+      <motion.div
+        initial={reduced ? false : { opacity: 0, x: imgX }}
+        animate={isInView || reduced ? { opacity: 1, x: 0 } : undefined}
+        transition={{ duration: 0.7, delay: reduced ? 0 : 0.1, ease }}
+        className={reversed ? "lg:[direction:ltr]" : ""}
+      >
         <div className="feature-screenshot-frame">{mock}</div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
 
