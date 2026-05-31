@@ -52,13 +52,13 @@ export function Hero() {
           {/* Main native app screenshot */}
           <div className="hero-screenshot-frame">
             <img
-              src="/product-shots/native-session-hvac.png"
-              alt="ContxtIQ native interview session showing structured questions organized by section with an Evaluate button for real-time scoring"
+              src="/product-shots/native-welcome.png"
+              alt="ContxtIQ native app welcome screen with New Session button and recent interview templates"
               className="hero-screenshot-img"
             />
           </div>
 
-          {/* Floating new session dialog */}
+          {/* Floating interview session overlay */}
           <motion.div
             initial={reduced ? false : { opacity: 0, x: 40, y: 20 }}
             animate={
@@ -74,8 +74,8 @@ export function Hero() {
             className="hero-floating-card"
           >
             <img
-              src="/product-shots/native-new-session-dialog.png"
-              alt="ContxtIQ new session dialog with script template selection"
+              src="/product-shots/native-session-hvac.png"
+              alt="ContxtIQ native interview session showing structured questions with evaluate button"
               className="rounded-xl"
             />
           </motion.div>
