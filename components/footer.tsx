@@ -1,4 +1,10 @@
+"use client";
+
+import { useDemoModal } from "./demo-modal";
+
 export function Footer() {
+  const { open } = useDemoModal();
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-[1080px] flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
@@ -23,12 +29,12 @@ export function Footer() {
           >
             Terms
           </a>
-          <a
-            href="#request-demo"
+          <button
+            onClick={open}
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Request a demo
-          </a>
+          </button>
         </div>
       </div>
     </footer>

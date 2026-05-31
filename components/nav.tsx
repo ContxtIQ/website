@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDemoModal } from "./demo-modal";
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
@@ -12,6 +13,7 @@ const NAV_LINKS = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { open } = useDemoModal();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 64);
@@ -43,12 +45,12 @@ export function Nav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#request-demo"
+          <button
+            onClick={open}
             className="rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all hover:shadow-[0_0_24px_rgba(77,184,138,0.4)]"
           >
             Request a demo
-          </a>
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -94,13 +96,15 @@ export function Nav() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#request-demo"
+              <button
                 className="mt-2 rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-5 py-2 text-center text-sm font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  setMobileOpen(false);
+                  open();
+                }}
               >
                 Request a demo
-              </a>
+              </button>
             </div>
           </motion.div>
         )}

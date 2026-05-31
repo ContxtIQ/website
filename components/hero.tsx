@@ -3,11 +3,13 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { HeroMock } from "./hero-mock";
+import { useDemoModal } from "./demo-modal";
 
 export function Hero() {
   const imgRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(imgRef, { once: true, amount: 0.15 });
   const reduced = useReducedMotion();
+  const { open } = useDemoModal();
 
   return (
     <section>
@@ -22,12 +24,12 @@ export function Hero() {
           expertise.
         </p>
         <div className="mt-10 flex items-center gap-6">
-          <a
-            href="#request-demo"
+          <button
+            onClick={open}
             className="rounded-full border border-[rgba(77,184,138,0.4)] bg-[linear-gradient(135deg,rgba(77,184,138,0.45),rgba(45,160,110,0.35),rgba(77,184,138,0.28))] px-8 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_14px_rgba(77,184,138,0.25)] transition-all hover:shadow-[0_0_28px_rgba(77,184,138,0.45)]"
           >
             Request a demo
-          </a>
+          </button>
           <a
             href="#how-it-works"
             className="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"

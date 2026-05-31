@@ -1,16 +1,18 @@
+"use client";
+
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { FeatureDeepDives } from "@/components/feature-deep-dive";
 import { WhoItsFor } from "@/components/who-its-for";
 import { SocialProof } from "@/components/social-proof";
-import { CtaSection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
 import { ParticleBackground } from "@/components/particle-background";
+import { DemoModalProvider } from "@/components/demo-modal";
 
 export default function Home() {
   return (
-    <>
+    <DemoModalProvider>
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent focus:outline-none"
@@ -26,10 +28,9 @@ export default function Home() {
           <FeatureDeepDives />
           <WhoItsFor />
           <SocialProof />
-          <CtaSection />
         </main>
         <Footer />
       </div>
-    </>
+    </DemoModalProvider>
   );
 }
