@@ -1,19 +1,16 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const LiveScoringDemo = dynamic(
-  () =>
-    import("@/components/live-scoring-demo").then((mod) => ({
-      default: mod.LiveScoringDemo,
-    })),
-  { ssr: false }
-);
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
 export function Hero() {
+  const imgRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(imgRef, { once: true, amount: 0.15 });
+  const reduced = useReducedMotion();
+
   return (
     <section>
-      <div className="flex flex-col items-center px-6 pt-32 pb-20 text-center md:pt-40 md:pb-24">
+      <div className="flex flex-col items-center px-6 pt-32 pb-16 text-center md:pt-40 md:pb-20">
         <h1 className="max-w-[720px] font-display text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground md:text-[56px]">
           Every interviewer performs like your best one
         </h1>
@@ -36,7 +33,57 @@ export function Hero() {
           </a>
         </div>
       </div>
-      <LiveScoringDemo />
+
+      {/* Hero product showcase */}
+      <div ref={imgRef} className="relative mx-auto max-w-[1200px] px-6 pb-8">
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 32, scale: 0.97 }}
+          animate={
+            isInView || reduced
+              ? { opacity: 1, y: 0, scale: 1 }
+              : undefined
+          }
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="hero-screenshot-wrapper"
+        >
+          {/* Glow effect behind the screenshot */}
+          <div className="hero-glow" />
+
+          {/* Main native app screenshot */}
+          <div className="hero-screenshot-frame">
+            <img
+              src="/product-shots/native-session-hvac.png"
+              alt="ContxtIQ native interview session showing structured questions organized by section with an Evaluate button for real-time scoring"
+              className="hero-screenshot-img"
+            />
+          </div>
+
+          {/* Floating new session dialog */}
+          <motion.div
+            initial={reduced ? false : { opacity: 0, x: 40, y: 20 }}
+            animate={
+              isInView || reduced
+                ? { opacity: 1, x: 0, y: 0 }
+                : undefined
+            }
+            transition={{
+              duration: 0.7,
+              delay: reduced ? 0 : 0.35,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+            className="hero-floating-card"
+          >
+            <img
+              src="/product-shots/native-new-session-dialog.png"
+              alt="ContxtIQ new session dialog with script template selection"
+              className="rounded-xl"
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom fade to blend into next section */}
+        <div className="hero-bottom-fade" />
+      </div>
     </section>
   );
 }

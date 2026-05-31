@@ -89,3 +89,99 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Hero screenshot showcase */
+.hero-screenshot-wrapper {
+  position: relative;
+  perspective: 1200px;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 2rem;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(77, 184, 138, 0.12) 0%,
+    rgba(77, 184, 138, 0.04) 50%,
+    transparent 80%
+  );
+  z-index: 0;
+}
+
+.hero-screenshot-frame {
+  position: relative;
+  z-index: 1;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 120px rgba(77, 184, 138, 0.1);
+}
+
+.hero-screenshot-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(1.15) contrast(1.06);
+}
+
+.hero-floating-card {
+  position: absolute;
+  z-index: 2;
+  bottom: -24px;
+  right: -16px;
+  width: 38%;
+  min-width: 220px;
+  max-width: 420px;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 40px rgba(77, 184, 138, 0.08);
+}
+
+.hero-floating-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(1.15) contrast(1.06);
+}
+
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--background));
+  pointer-events: none;
+  z-index: 3;
+}
+
+@media (max-width: 640px) {
+  .hero-floating-card {
+    display: none;
+  }
+}
+
+/* Feature deep dive screenshots */
+.feature-screenshot-frame {
+  border-radius: 0.875rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.feature-screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(1.15) contrast(1.06);
+}

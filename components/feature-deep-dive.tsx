@@ -3,78 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
-function ScorecardMock() {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm font-semibold text-foreground">
-          Can you describe the types of HVAC systems you&apos;ve worked on?
-        </p>
-        <span className="rounded-full bg-score-good-subtle px-3 py-1 font-mono text-xs font-bold text-score-good">
-          85.7%
-        </span>
-      </div>
-      <div className="rounded-lg bg-[rgba(255,255,255,0.03)] p-4">
-        <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-          Response Summary
-        </p>
-        <ul className="space-y-2 text-sm text-muted-foreground">
-          <li className="flex gap-2">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-score-good" />
-            Candidate demonstrates practical experience across multiple system types
-          </li>
-          <li className="flex gap-2">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-score-good" />
-            Covers residential, commercial, split systems, heat pumps, furnaces
-          </li>
-          <li className="flex gap-2">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-score-good" />
-            Includes relevant service areas: installations, diagnostics, repairs
-          </li>
-          <li className="flex gap-2">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-score-low" />
-            Response could be more organized; lacks specific examples or depth
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-}
-
-function TemplateListMock() {
-  const templates = [
-    { name: "Customer Success Check-In", sections: 3, questions: 10 },
-    { name: "Technical Phone Screen", sections: 4, questions: 13 },
-    { name: "Sales Discovery Call", sections: 4, questions: 13 },
-  ];
-
-  return (
-    <div className="rounded-2xl border border-border bg-card">
-      <div className="border-b border-border px-5 py-3">
-        <div className="grid grid-cols-[1fr_80px_80px] gap-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          <span>Name</span>
-          <span className="text-center">Sections</span>
-          <span className="text-center">Questions</span>
-        </div>
-      </div>
-      {templates.map((t) => (
-        <div
-          key={t.name}
-          className="grid grid-cols-[1fr_80px_80px] gap-4 border-b border-border px-5 py-4 last:border-b-0"
-        >
-          <span className="text-sm font-medium text-foreground">{t.name}</span>
-          <span className="text-center text-sm text-muted-foreground">
-            {t.sections}
-          </span>
-          <span className="text-center text-sm text-muted-foreground">
-            {t.questions}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 interface DeepDiveProps {
   label: string;
   heading: string;
@@ -109,7 +37,9 @@ function DeepDive({ label, heading, body, mock, reversed }: DeepDiveProps) {
           {body}
         </p>
       </div>
-      <div className={reversed ? "lg:[direction:ltr]" : ""}>{mock}</div>
+      <div className={reversed ? "lg:[direction:ltr]" : ""}>
+        <div className="feature-screenshot-frame">{mock}</div>
+      </div>
     </motion.div>
   );
 }
@@ -121,13 +51,25 @@ export function FeatureDeepDives() {
         label="Answer Scoring"
         heading="Scoring that explains itself"
         body="Every answer gets a percentage score and a point-by-point breakdown — what the candidate covered, what they missed, and how it compares to your ideal. No black boxes."
-        mock={<ScorecardMock />}
+        mock={
+          <img
+            src="/product-shots/conversation-detail-top.jpg"
+            alt="Conversation detail view showing an 86% final score with section-by-section scoring and AI-generated response summaries"
+            className="rounded-xl"
+          />
+        }
       />
       <DeepDive
         label="Script Templates"
         heading="Every interview, same standard"
         body="Script templates ensure every candidate gets the same questions in the same order. Sections organize by competency. Scores roll up for a clear, comparable signal."
-        mock={<TemplateListMock />}
+        mock={
+          <img
+            src="/product-shots/script-template-detail-top.jpg"
+            alt="Script template detail view showing questions organized by section with ideal responses and aggregate scoring metrics"
+            className="rounded-xl"
+          />
+        }
         reversed
       />
     </section>
