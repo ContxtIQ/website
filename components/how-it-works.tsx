@@ -49,7 +49,7 @@ function StackedProductShots({
         transition={{ duration: 0.7, ease }}
       >
         <img
-          src="/website/product-shots/native-welcome.png"
+          src="/website/product-shots/native-session-ruby-fundamentals.jpg"
           alt="ContxtIQ welcome screen"
           loading="lazy"
         />
@@ -67,7 +67,7 @@ function StackedProductShots({
         transition={{ duration: 0.7, delay: reduced ? 0 : 0.15, ease }}
       >
         <img
-          src="/website/product-shots/native-session-hvac.png"
+          src="/website/product-shots/native-session-rails-activerecord.jpg"
           alt="ContxtIQ live interview session with real-time scoring"
           loading="lazy"
         />

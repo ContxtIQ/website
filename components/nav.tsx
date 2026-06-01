@@ -30,7 +30,12 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-full max-w-[1080px] items-center justify-between px-6">
-        <a href="#" className="font-display text-lg font-bold tracking-wide text-foreground">
+        <a href="#" className="flex items-center gap-2.5 font-display text-lg font-bold tracking-wide text-foreground">
+          <img
+            src="/website/product-shots/contxtiq-logo.png"
+            alt=""
+            className="h-7 w-7 rounded-md"
+          />
           CONTXTIQ
         </a>
 

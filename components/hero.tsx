@@ -16,10 +16,17 @@ export function Hero() {
   const { open } = useDemoModal();
 
   return (
-    <section>
+    <section className="relative overflow-hidden">
+      <div className="hero-wave" aria-hidden="true">
+        <img
+          src="/website/product-shots/contxtiq-wave.png"
+          alt=""
+          className="hero-wave-img"
+        />
+      </div>
       <div
         ref={textRef}
-        className="flex flex-col items-center px-6 pt-32 pb-16 text-center md:pt-40 md:pb-20"
+        className="relative z-10 flex flex-col items-center px-6 pt-32 pb-16 text-center md:pt-40 md:pb-20"
       >
         <motion.h1
           initial={reduced ? false : { opacity: 0, y: 24 }}

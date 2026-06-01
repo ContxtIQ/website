@@ -97,6 +97,33 @@ html {
   }
 }
 
+/* Hero wave background */
+.hero-wave {
+  position: absolute;
+  top: -10%;
+  left: -12%;
+  width: 70%;
+  max-width: 900px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
+}
+
+.hero-wave-img {
+  width: 100%;
+  height: auto;
+  filter: brightness(1.8) grayscale(1);
+  mix-blend-mode: lighten;
+}
+
+@media (max-width: 768px) {
+  .hero-wave {
+    display: none;
+  }
+}
+
 /* Hero screenshot showcase */
 .hero-screenshot-wrapper {
   position: relative;

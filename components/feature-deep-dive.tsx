@@ -66,7 +66,7 @@ export function FeatureDeepDives() {
         body="Your recruiters don't need to know Kubernetes from Kafka. ContxtIQ scores technical answers in real time against expert-written rubrics — so you can assess engineers, architects, and DevOps candidates without a technical SME in every interview."
         mock={
           <img
-            src="/website/product-shots/native-welcome.png"
+            src="/website/product-shots/native-session-ruby-fundamentals.jpg"
             alt="ContxtIQ welcome screen showing recent interview scripts"
             className="rounded-xl"
           />
